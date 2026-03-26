@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .err {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Form</h1>
+
+  <form onsubmit="validate(event)">
+  
+      <legend>User Details</legend>
+
+      <div>
+        Name:
+        <input type="text" id="First" placeholder="First Name" required />
+      </div>
+      <br>
+
+      <div>
+        Email:
+        <input type="email" id="email" required />
+      </div>
+      <br>
+
+      <div>
+        Phone:
+        <input type="text" id="phone" required />
+      </div>
+      <br>
+
+      <div id="gender">
+        Gender:
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+      </div>
+      <br>
+
+      <!-- <input type="submit" value="Submit"> -->
+       <button type="submit">submit</button>
+      <input type="reset" value="Clear">
+
+      <div class="err"></div>
+      <div class="succ"></div>
+  </form>
+
+  <script>
+    function validate(event) {
+      event.preventDefault()
+      let name = document.getElementById("First").value;
+      let phone = document.getElementById("phone").value;
+      const genderEl = document.querySelector('input[name="gender"]:checked');
+      let gender = genderEl ? genderEl.value : null;
+      let email = document.getElementById("email").value;
+
+      let nameexp = /^[A-Za-z ]+$/;
+      let phoneexp = /^\d{10}$/;
+       let emailexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let err = "";
+
+      if (!gender) {
+        err += "Gender must be selected<br>";
+      }
+      if (!nameexp.test(name)) err += "Name should contain only alphabets and spaces<br>";
+      if (!phoneexp.test(phone)) err += "Phone number must be 10 digits<br>";
+      if (!emailexp.test(email)) err += "Proper Email Required<br>";
+
+      // Display error
+      document.getElementsByClassName("err")[0].innerHTML = err;
+
+      // Prevent submission if error exists
+      if (err !== "") {
+        event.preventDefault();
+        return false;
+      }
+      else{
+        let success="Successful";
+        document.getElementsByClassName("succ")[0].innerHTML=success;
+      }
+    }
+  </script>
+</body>
+</html>

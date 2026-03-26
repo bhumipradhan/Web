@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Container for absolute positioning */
+    .container {
+      position: relative;
+      width: 300px;
+      height: 150px;
+      border: 2px solid black;
+      margin: 20px auto;
+      background-color: #f0f0f0;
+    }
+
+    /* Relative box */
+    .relative {
+      position: relative;
+      top: 20px;  
+      left: 20px; 
+      width: 100px;
+      height: 50px;
+      background-color: blue;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* Absolute box */
+    .absolute {
+      position: absolute;
+      top: 20px;  
+      right: 20px;
+      width: 100px;
+      height: 50px;
+      background-color: purple;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    /* Float boxes */
+    .float-left {
+      float: left;
+      width: 100px;
+      height: 50px;
+      background-color: green;
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .float-right {
+      float: right;
+      width: 100px;
+      height: 50px;
+      background-color: orange;
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>CSS Positioning</h2>
+
+  <ul>
+    <li><strong>Relative:</strong> Moves from its normal position.</li>
+    <li><strong>Absolute:</strong> Moves inside a container (ignores other elements).</li>
+    <li><strong>Float:</strong> Makes elements float left or right, text wraps around them.</li>
+  </ul>
+
+  <div class="container">
+    <div class="relative">Relative</div>
+  </div>
+  <div class="container">
+     <div class="absolute">Absolute</div>
+  </div>
+
+  <h3>Floate</h3>
+  <div class="float-left">Left</div>
+  <div class="float-right">Right</div>
+ 
+
+  
+  
+  
+</body>
+</html>

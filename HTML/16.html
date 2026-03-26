@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>16.Online Application Form</title>
+</head>
+<body>
+
+<h1>Application Form</h1>
+
+<form action="/submit-application" method="post" enctype="multipart/form-data">
+    <!-- Personal Info -->
+    <fieldset>
+        <legend>Personal Information</legend>
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Exactly 10 digits" pattern="[0-9]{10}" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="male" required> Male
+        <input type="radio" name="gender" value="female"> Female<br><br>
+    </fieldset>
+
+    <!-- Education Info -->
+    <fieldset>
+        <legend>Education</legend>
+        <label for="degree">Select Degree:</label>
+        <select id="degree" name="degree" required>
+            <optgroup label="Undergraduate">
+                <option value="bscit">BSc IT</option>
+                <option value="bscnt">BSc NT</option>
+            </optgroup>
+            <optgroup label="Graduate">
+                <option value="mscit">MSc IT</option>
+            </optgroup>
+        </select><br><br>
+
+        <label for="university">University:</label>
+        <input list="universities" name="university" id="university" placeholder="Select or type">
+        <datalist id="universities">
+            <option value="Tribhuvan University">
+            <option value="Kathmandu University">
+            <option value="Pokhara University">
+        </datalist><br><br>
+    </fieldset>
+
+    <!-- Additional Info -->
+    <fieldset>
+        <legend>Additional Information</legend>
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="40" placeholder="Description"></textarea><br><br>
+
+        <label for="resume">Upload Resume:</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"><br><br>
+
+        <button type="submit">Submit Application</button>
+        <button type="reset">Reset Form</button>
+    </fieldset>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Block element */
+    .block-box {
+      display: block;
+      background-color: lightblue;
+      padding: 20px;
+      margin: 10px 0;
+      width: 200px;
+      text-align: center;
+    }
+
+    /* Inline element */
+    .inline-box {
+      display: inline;
+      background-color: lightgreen;
+      padding: 10px;
+      margin: 0 5px;
+    }
+
+    /* Inline-block element */
+    .inline-block-box {
+      display: inline-block;
+      background-color: lightcoral;
+      padding: 15px;
+      margin: 5px;
+      width: 150px;
+      text-align: center;
+    }
+
+    /* Hidden element */
+    .hidden-box {
+      display: none;
+      background-color: yellow;
+      padding: 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>CSS Display Properties</h2>
+
+  <div class="block-box">Block Element</div>
+
+  <span class="inline-box">Inline </span>
+ 
+
+  <div class="inline-block-box">Inline-Block</div>
+  
+
+  <div class="hidden-box">You can't see me!</div>
+
+  <ul>
+  <li><strong>Block:</strong> Takes full width and goes to a new line.</li>
+  <li><strong>Inline:</strong> Stays in the same line, width and height don’t change.</li>
+  <li><strong>Inline-block:</strong> Stays in the same line but you can set width, height, padding, and margin.</li>
+  <li><strong>None:</strong> The element is hidden and does not show up.</li>
+</ul>
+
+</html>

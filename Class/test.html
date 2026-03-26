@@ -1,0 +1,145 @@
+<?php
+// Regex patterns (stored in variables)
+$regExpname='/^[A-Za-z]+$/';
+$regExpphone='/^[9][7-8][0-9]{8}$/';
+$emailPattern    = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+$passwordPattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]{6,}$/";
+$genderPattern   = "/^(Male|Female|Other)$/";
+$agePattern      = "/^(1[0-1][0-9]|[1-9]?[0-9]|120)$/";
+
+// POST values (stored in variables)
+$name=$_POST['name'] ?? "";
+$phone=$_POST["phone"] ?? "";
+$email    = $_POST['email'] ?? ""   ;
+$password = $_POST['password'] ?? "";
+$gender   = $_POST['gender']  ?? "" ;
+$age      = $_POST['age']   ?? ""   ;
+$hobby    = $_POST['hobby'] ?? [] ;
+
+// Error variables
+$errorname=$phonerr=$emailErr = $passwordErr = $genderErr = $ageErr = $hobbyErr = "";
+$success = "";
+
+// Form submit check
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if($name==""){
+        $errorname="Name is required";
+    }
+    else if(!preg_match($regExpname,$name)){
+        $errorname="Name should contain only characters";
+    }
+    if($phone==""){
+        $phonerr="Phone number is required";
+    }
+    else if(!preg_match($regExpphone,$phone)){
+        $phonerr="Phone must start with 98 or 97 and must be exactly 10";
+    }
+    // Email validation
+    if ($email == "") {
+        $emailErr = "Email is required";
+    } elseif (!preg_match($emailPattern, $email)) {
+        $emailErr = "Invalid email format";
+    }
+
+    // Password validation
+    if ($password == "") {
+        $passwordErr = "Password is required";
+    } elseif (!preg_match($passwordPattern, $password)) {
+        $passwordErr = "Min 6 chars with (caps+lower)letters,special characters and numbers";
+    }
+
+    // Gender validation
+    if ($gender == "") {
+        $genderErr = "Gender is required";
+    } elseif (!preg_match($genderPattern, $gender)) {
+        $genderErr = "Invalid gender";
+    }
+
+    // Age validation
+    if ($age == "") {
+        $ageErr = "Age is required";
+    } elseif (!preg_match($agePattern, $age)) {
+        $ageErr = "Invalid age";
+    }
+
+    // Hobby validation
+    if (empty($hobby)) {
+        $hobbyErr = "Select at least one hobby";
+    }
+
+    // Success condition
+    if ($errorname=="" && $phonerr=="" && $emailErr == "" && $passwordErr == "" && $genderErr == "" && $ageErr == "" && $hobbyErr == "") {
+        $success = "Form submitted successfully!";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Regex Validation (Variables)</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form method="post" action="">
+    Name: <br>
+    <input type="text" name="name">
+    <span class="error"><?php echo $errorname;?></span><br><br>
+    Number:<br>
+    <input type="text" name="phone">
+    <span class="error"><?php echo $phonerr; ?></span><br><br>
+    Email:<br>
+    <input type="text" name="email" value="<?php echo $email; ?>">
+    <span class="error"><?php echo $emailErr; ?></span>
+    <br><br>
+
+    Password:<br>
+    <input type="password" name="password">
+    <span class="error"><?php echo $passwordErr; ?></span>
+    <br><br>
+
+    Gender:<br>
+    <input type="radio" name="gender" value="Male"   <?php if($gender=="Male") echo "checked"; ?>> Male
+    <input type="radio" name="gender" value="Female" <?php if($gender=="Female") echo "checked"; ?>> Female
+    <input type="radio" name="gender" value="Other"  <?php if($gender=="Other") echo "checked"; ?>> Other
+    <span class="error"><?php echo $genderErr; ?></span>
+    <br><br>
+
+    Age:<br>
+    <input type="text" name="age" value="<?php echo $age; ?>">
+    <span class="error"><?php echo $ageErr; ?></span>
+    <br><br>
+
+    Hobby:<br>
+    <input type="checkbox" name="hobby[]" value="Reading" <?php if(in_array("Reading",$hobby)) echo "checked"; ?>> Reading
+    <input type="checkbox" name="hobby[]" value="Sports"  <?php if(in_array("Sports",$hobby)) echo "checked"; ?>> Sports
+    <input type="checkbox" name="hobby[]" value="Music"   <?php if(in_array("Music",$hobby)) echo "checked"; ?>> Music
+    <span class="error"><?php echo $hobbyErr; ?></span>
+    <br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<p class="success"><?php echo $success; ?></p>
+
+<?php
+if ($success != "") {
+    echo "<h3>Submitted Data</h3>";
+    echo "Name:$name<br>";
+    echo "Phone:$phone<br>";
+    echo "Email: $email <br>";
+    echo "Gender: $gender <br>";
+    echo "Age: $age <br>";
+    echo "Hobbies: " . implode(", ", $hobby);
+}
+?>
+
+</body>
+</html>

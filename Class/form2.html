@@ -1,0 +1,49 @@
+let name = document.getElementById("First").innerText;
+      let phone = document.getElementById("phone").innerText;
+      let gender = document.getElementsByName("gender");
+
+      let nameexp = /^[A-Za-z ]+$/;
+      let phoneexp = /^\d{10}$/;
+       let emailexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let err = "";
+
+      // Check gender
+      let selected = false;
+      for (let i = 0; i < gender.length; i++) {
+        if (gender[i].checked) {
+          selected = true;
+        }
+      }
+
+      if (!selected) {
+        err += "Gender must be selected<br>";
+      }
+
+      // Check empty
+      if (name === "" || phone === "") {
+        err += "All fields are required<br>";
+      } else {
+        if (!name.match(nameexp)) {
+          err += "Name should contain only alphabets and spaces<br>";
+        }
+
+        if (!phone.match(phoneexp)) {
+          err += "Phone number must be 10 digits<br>";
+        }
+      }
+       
+      if (!email.match(emailexp)){
+        err+="Proper Email Required";
+      }
+
+      // Display error
+      document.getElementsByClassName("err")[0].innerHTML = err;
+
+      // Prevent submission if error exists
+      if (err !== "") {
+        return false;
+      }
+      console.log("document",document)
+      return true;
+    }
+  </script>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>15.Comprehensive Registration Form</title>
+
+    <style>
+        .input-box{
+            margin-bottom:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h3>Registration Form</h3>
+
+<form action="#" method="post" autocomplete="off">
+
+    <!-- Text -->
+    <div class="input-box">
+        Name:
+        <input type="text" id="name"
+        name="name" placeholder="Full Name"
+        required maxlength="50">
+    </div>
+
+    <!-- Password -->
+    <div class="input-box">
+        Password:
+        <input type="password" id="password"
+        name="password" required minlength="6">
+    </div>
+
+    <!-- Email -->
+    <div class="input-box">
+        Email:
+        <input type="email" id="email"
+        name="email" placeholder="example@mail.com"
+        required>
+    </div>
+
+    <!-- Phone with pattern -->
+    <div class="input-box">
+        Phone Number:
+        <input type="text" id="phone"
+        name="phone"
+        required>
+    </div>
+
+    <!-- Number -->
+    <div class="input-box">
+        Age:
+        <input type="number" id="age"
+        name="age" min="10" max="100">
+    </div>
+
+    <!-- Date -->
+    <div class="input-box">
+        Date of Birth:
+        <input type="date" id="dob"
+        name="dob" required>
+    </div>
+
+    <!-- Radio -->
+    <div class="input-box">
+        Gender:
+        <input type="radio" id="male"
+        name="gender" value="male" required> Male
+
+        <input type="radio" id="female"
+        name="gender" value="female"> Female
+    </div>
+
+    <!-- Checkbox -->
+    <div class="input-box">
+        Hobbies:
+        <input type="checkbox" id="playing"name="hobby" value="Playing"> Playing
+
+        <input type="checkbox" id="coding" name="hobby" value="Coding"> Coding
+
+        <input type="checkbox" id="dancing" name="hobby" value="Dancing"> Dancing
+    </div>
+
+    <!-- File -->
+    <div class="input-box">
+        Upload Photo:
+        <input type="file" id="photo"
+        name="photo" >
+    </div>
+
+    <!-- Range -->
+    <div class="input-box">
+        Experience (years):
+        <input type="range" id="experience"
+        name="experience" min="0" max="20">
+    </div>
+
+    <!-- Color -->
+    <div class="input-box">
+        Favorite Color:
+        <input type="color" id="favcolor"
+        name="favcolor">
+    </div>
+
+    <!-- Readonly example -->
+    <div class="input-box">
+        Country:
+        <input type="text" name="country"
+        value="Nepal" readonly>
+    </div>
+
+    <!-- Disabled example -->
+    <div class="input-box">
+        Membership Status:
+        <input type="text" value="Pending Approval" disabled>
+    </div>
+
+    <!-- Textarea -->
+    <div class="input-box">
+        Description:<br>
+        <textarea id="description"
+        name="description"
+        rows="4"
+        cols="30"
+        required></textarea>
+    </div>
+
+    <!-- Submit -->
+    <input type="submit" value="Register">
+
+</form>
+
+</body>
+</html>

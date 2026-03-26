@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<h1>Canvas Drawing</h1>
+
+<canvas id="mandip" width="400" height="200" style="border:1px solid #000000;">
+    Your browser does not support the canvas element.
+</canvas>
+
+<script>
+    const canvas = document.getElementById('mandip');
+    const ctx = canvas.getContext('2d');
+
+    // Draw a rectangle
+    ctx.fillStyle = "lightblue";
+    ctx.fillRect(50, 30, 150, 100);
+
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(300, 80, 50, 0, 2 * Math.PI); // x=300, y=80, radius=50
+    ctx.fillStyle = "lightgreen";
+    ctx.fill();
+    ctx.stroke();
+</script>
+
+</body>
+</html>

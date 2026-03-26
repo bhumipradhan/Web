@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .err {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Form</h1>
+
+  <form method="post" onsubmit="return validate()">
+  
+      <legend>User Details</legend>
+
+      <div>
+        Name:
+        <input type="text" id="First" placeholder="First Name" required />
+      </div>
+      <br>
+
+      <div>
+        Email:
+        <input type="email" id="email" required />
+      </div>
+      <br>
+
+      <div>
+        Phone:
+        <input type="text" id="phone" required />
+      </div>
+      <br>
+
+      <div>
+        Gender:
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+      </div>
+      <br>
+
+      <!-- <input type="submit" value="Submit"> -->
+       <button onsubmit=""></button>
+      <input type="reset" value="Clear">
+
+      <div class="err"></div>
+  </form>
+
+  <script>
+    function validate() {
+      console.log("test1");}
+      </script>
+
+</body>
+</html>

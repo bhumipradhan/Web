@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <div></div>
+    <!-- <input type="date" name="" id="date">
+    <input type="button" value="OK" class="button">
+
+    <div class="hero">
+      <img src="image/1.jpg" alt="" srcset="" />
+      <p></p>
+    </div>
+     <button class="btn-show">Show</button> -->
+    <button class="btn">Animate</button>
+  </body>
+</html>
+<style>
+  div {
+    background-color: red;
+    position: absolute;
+    border: 1px solid black;
+    padding: 5%;
+    width: 2%;
+    left: 200px;
+    /* color: red; */
+  }
+</style>
+<script>
+  $(".btn").on("click", function () {
+    $("div").animate({
+      left: "500px",
+      top: "100px",
+      scale:2
+      
+    },20000,function(){
+        alert("Animation completed");
+    });
+  });
+  //     $(".button").on('click keyup',function(){
+  //         console.log($("#date").val());
+  //         // let date= document.getElementById("date").value;
+  //     });
+  //     let text = "Hello if you click on hide i will hide";
+  //     $("img").mouseenter(function () {
+  //         $("p").html(text);
+  //         // document.getElementById("para").innerHTML=text;
+  //     // $("p").addClass("card");
+  //   });
+  //   $("img").mouseleave(function () {
+  //     $("p").removeClass("card");
+  //   });
+
+  //   $(".btn").click(function () {
+  //     $("p").toggle();
+  //   });
+  //   //   $(".btn").click(function () {
+  //   //     $("p").hide();
+  //   //   });
+  //   //    $(".btn-show").click(function () {
+  //   //     $("p").show();
+  //   //   });
+</script>

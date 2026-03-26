@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>Navigation Bar</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Logo</a>
+         <label class="menu">Menu</label>
+        <ul>
+           
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="#">Language</a>
+            <ul class="dropdown">
+                <li><a href="#">English</a></li>
+                <li><a href="#">Nepali</a></li>
+                <li><a href="#">Spanish</a></li>
+            </ul>
+            </li>
+            
+        </ul>
+    </nav>
+    <style>
+        .menu{
+            display: none;
+            color: white;
+            font-size: 18px;
+            align-content: left;
+            
+        }
+    
+        @media(max-width:768px){
+            .menu{
+                display: block;
+            }
+            .navbar ul{
+                display: none;
+                text-align: left;
+            }
+            .navbar ul li{
+                display: block;
+            }
+            .menu:hover+ul{
+                display: block;
+            }
+        }
+        
+        *{
+            margin: 0px;
+            list-style: none;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            height: 100;
+            width: 100%;
+            background-color: white;
+        }
+        nav{
+            background-color: gray;
+            padding: 20px 9%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo{
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+        li{
+            display: inline-block;
+        }
+        li a{
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            margin-right: 25px;
+        }
+        li a:hover{
+            color: black;
+        }
+        button{
+            width: 90px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #373737;
+        }
+       ul li ul.dropdown{
+            width: 10%;
+            background: rgb(201, 196, 196);
+            position: absolute;
+            display: none;
+            padding: 20px;
+            border-radius: 5%;
+
+        }
+
+        ul li ul.dropdown li{
+            display: block;
+        }
+
+        ul li:hover ul.dropdown{
+            display: block;
+        }
+        @media(min-width:0px) and (max-width:400px){
+            body{
+            background-color: white;}
+        }
+        @media(min-width:401px) and (max-width:767px){
+            body{
+            background-color: purple;}
+        }
+        @media(min-width:768px){
+            body{
+                background-color: red;
+            }
+        }
+    </style>
+</body>
+</html>
