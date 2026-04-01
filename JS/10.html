@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .highlight { background-color: yellow; }
+        .text-blue { color: blue; }
+    </style>
+</head>
+<body>
+    <h2>jQuery Selectors</h2>
+    
+    <p>This is a standard paragraph.</p>
+    <p id="special">This paragraph has an ID.</p>
+    <p class="styled">This paragraph has a class.</p>
+
+    <button id="elementBtn">Select elements (p)</button>
+    <button id="idBtn">Select ID (#special)</button>
+    <button id="classBtn">Select Class (.styled)</button>
+
+    <script>
+
+        $(document).ready(function(){
+            // Element selector
+            $("#elementBtn").click(function(){
+                $("p").css("font-weight", "bold");
+            });
+
+            // ID selector
+            $("#idBtn").click(function(){
+                $("#special").addClass("text-blue");
+            });
+
+            // Class selector
+            $("#classBtn").click(function(){
+                $(".styled").addClass("highlight");
+            });
+        });
+    </script>
+</body>
+</html>

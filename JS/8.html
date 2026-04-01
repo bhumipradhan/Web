@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Try-Catch Error Handling</h2>
+    <p id="result"></p>
+
+    <script>
+
+        let output = document.getElementById("result");
+
+        try {
+            output.innerHTML += "Executing try block...<br>";
+            
+            nonExistentFunction();
+            output.innerHTML += "This won't be displayed.<br>"; 
+
+        } catch (error) {
+            // How the error is caught
+            output.innerHTML += "<span style='color:red;'>An error occurred!</span><br>";
+            output.innerHTML += "<b>Error Name:</b> " + error.name + "<br>";
+            output.innerHTML += "<b>Error Message:</b> " + error.message;
+        }
+    </script>
+</body>
+</html>

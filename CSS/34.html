@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        /* Relative container for absolute positioning */
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            border: 2px solid black;
+            background-color: #f9f9f9;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+        }
+
+        .static-div {
+            /* Default position */
+            position: static;
+            background-color: gray;
+        }
+
+        .relative-div {
+            /* Positioned relative to its normal position */
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: blue;
+        }
+
+        .absolute-div {
+            /* Positioned relative to the nearest positioned ancestor (the container) */
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+        }
+
+        .fixed-div {
+            /* Positioned relative to the viewport */
+            position: fixed;
+            bottom: 450px;
+            right: 800px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h3>How to define the position property?</h3>
+        <p>The CSS position property specifies the type of positioning method used for an element. You can define it using values like: static<, relative, absolute, fixed, and sticky.</p>
+    </div>
+
+    <div class="container">
+        <div class="box static-div">Static</div>
+        <div class="box relative-div">Relative</div>
+        <div class="box absolute-div">Absolute</div>
+    </div>
+    
+    <div class="box fixed-div">Fixed</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error { color: red; display: none; margin-left:10px;}
+        #postalContainer { display: none; margin-top: 10px;}
+    </style>
+</head>
+<body>
+    <h2>Shipping Address</h2>
+    
+    <form id="shippingForm">
+        <label>Country:</label>
+        <select id="country">
+            <option value="">-- Select --</option>
+            <option value="NP">Nepal</option>
+            <option value="US">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="IN">India</option>
+            <option value="CA">Canada</option>
+        </select>
+        <span class="error" id="errCountry">Pick a country.</span>
+        <br>
+
+        <div id="postalContainer">
+            <label>Zip/Postal Code:</label>
+            <input type="text" id="zipcode">
+            <span class="error" id="errZip">Zipcode is required for US/UK (5 digits).</span>
+        </div>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+
+        $(document).ready(function() {
+            let reqZipCountries = ["US", "UK"]; // Countries needing zip codes
+
+            // Show/Hide Zip field dynamically based on selection
+            $("#country").change(function() {
+                let currentCountry = $(this).val();
+                if (reqZipCountries.includes(currentCountry)) {
+                    $("#postalContainer").slideDown();
+                } else {
+                    $("#postalContainer").slideUp();
+                    $("#zipcode").val(""); 
+                    $("#errZip").hide();
+                }
+            });
+
+            // Form Submit Logic
+            $("#shippingForm").submit(function(e) {
+                e.preventDefault();
+                let isValid = true;
+                let country = $("#country").val();
+                let zip = $("#zipcode").val();
+
+                // Country validation
+                if (country === "") {
+                    $("#errCountry").show();
+                    isValid = false;
+                } else {
+                    $("#errCountry").hide();
+                }
+
+                // Conditional Zip Validation
+                if (reqZipCountries.includes(country)) {
+                    // Requires 5 digits exactly
+                    let zipPattern = /^\d{5}$/; 
+                    if (!zipPattern.test(zip)) {
+                        $("#errZip").show();
+                        isValid = false;
+                    } else {
+                        $("#errZip").hide();
+                    }
+                }
+
+                if (isValid) alert("Address form validated successfully!");
+            });
+        });
+    </script>
+</body>
+</html>

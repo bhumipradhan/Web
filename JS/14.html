@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Student Information from JSON</h2>
+    <table border="1" cellpadding="5" cellspacing="0" id="studentTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Passed?</th>
+            <th>Grades (Math, Sci, Eng)</th>
+        </tr>
+    </table>
+
+    <script>
+      
+
+        let studentsJSON = `[
+            { "name": "Bipin", "age": 20, "isPass": true, "grades": [85, 92, 78] },
+            { "name": "Sandeep", "age": 22, "isPass": false, "grades": [45, 55, 60] },
+            { "name": "Mandeep", "age": 21, "isPass": true, "grades": [90, 88, 95] }
+        ]`;
+
+        // Parse JSON String to JS Array
+        let studentsArray = JSON.parse(studentsJSON);
+        let table = document.getElementById("studentTable");
+
+        // Loop and Extract
+        for (let i = 0; i < studentsArray.length; i++) {
+            let student = studentsArray[i];
+            
+            let row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.isPass ? "Yes" : "No"}</td>
+                <td>${student.grades.join(", ")}</td>
+            `;
+            table.appendChild(row);
+        }
+    </script>
+</body>
+</html>

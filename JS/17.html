@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Course Registration</h2>
+    
+    <form id="dynamicForm" onsubmit="return validateForm(event)">
+        <p>
+            <label>Select Course:</label><br>
+            <select id="courseSelect">
+                <option value="">-- Choose Course --</option>
+                <option value="web">Web Technology</option>
+                <option value="net">.NET Technology</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="data">Data Science</option>
+                <option value="cloud">Cloud Computing</option>
+                <option value="cyber">Cybersecurity</option>
+            </select>
+            <span id="errCourse" style="color:red; display:none;">Please select a course.</span>
+        </p>
+
+        <p>
+            <label>Study Mode:</label><br>
+            <input type="radio" name="mode" value="online" id="modeOn"> Online
+            <input type="radio" name="mode" value="physical" id="modePhy"> Physical Class
+            <br>
+            <span id="errMode" style="color:red; display:none;">Please select a study mode.</span>
+        </p>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+
+    <script>
+
+        function validateForm(e) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Dropdown Validation
+            let course = document.getElementById("courseSelect").value;
+            if (course === "") {
+                document.getElementById("errCourse").style.display = "inline";
+                isValid = false;
+            } else {
+                document.getElementById("errCourse").style.display = "none";
+            }
+
+            // Radio Button Validation
+            let modeOnline = document.getElementById("modeOn").checked;
+            let modePhysical = document.getElementById("modePhy").checked;
+
+            if (!modeOnline && !modePhysical) {
+                document.getElementById("errMode").style.display = "inline";
+                isValid = false;
+            } else {
+                document.getElementById("errMode").style.display = "none";
+            }
+
+            if (isValid) {
+                alert("Successfully registered for course!");
+            }
+            return isValid;
+        }
+    </script>
+</body>
+</html>

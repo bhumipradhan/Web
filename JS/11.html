@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h2>jQuery Mouse Interaction Events</h2>
+    
+    <div id="interactiveBox" style="width:200px; padding:20px; background-color:lightblue; border:2px solid blue;">
+        Interact with me!
+    </div>
+
+    <p id="eventStatus" style="font-weight:bold;"></p>
+
+    <script>
+        
+        $(document).ready(function(){
+            let status = $("#eventStatus");
+
+            $("#interactiveBox").hover(
+                function() {
+                    status.text("Hovering: Mouse entered the box!");
+                    $(this).css("background-color", "green");
+                }, 
+                function() {
+                    status.text("Hovering: Mouse left the box.");
+                    $(this).css("background-color", "blue");
+                }
+            );
+
+            $("#interactiveBox").click(function() {
+                status.text("Click: You clicked the box!");
+                $(this).css("background-color", "yellow");
+            });
+
+            $("#interactiveBox").dblclick(function() {
+                status.text("Double click: You double-clicked the box!");
+                $(this).css("background-color", "red");
+            });
+        });
+    </script>
+</body>
+</html>

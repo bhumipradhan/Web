@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <label>Choose Username:</label>
+    <input type="text" id="usernameInput">
+    <span id="feedback" style="margin-left:10px; font-weight:bold;"></span>
+
+    <script>
+
+        let inputField = document.getElementById("usernameInput");
+        let feedback = document.getElementById("feedback");
+
+        // Use 'input' event for real-time keystroke tracking
+        inputField.addEventListener("input", function() {
+            let val = inputField.value;
+
+            if (val.length === 0) {
+                feedback.textContent = "";
+            } else if (val.length < 5) {
+                feedback.textContent = " Too short. Needs 5+ characters.";
+                feedback.style.color = "red";
+            } else if (!/^[A-Za-z0-9]+$/.test(val)) {
+                feedback.textContent = " Alphanumeric only (letters/numbers).";
+                feedback.style.color = "red";
+            } else {
+                feedback.textContent = " Username looks good!";
+                feedback.style.color = "green";
+            }
+        });
+    </script>
+</body>
+</html>
