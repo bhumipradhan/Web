@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>JSON Book Data</h2>
+    <div id="bookInfo"></div>
+
+    <script>
+
+        let bookJsonString = '{ "title": "The Great Gatsby", "author": "F. Scott Fitzgerald", "year": 1925, "genre": "Fiction" }';
+        
+        // Parse 
+        let bookObj = JSON.parse(bookJsonString);
+
+        // Displaying the data
+        let displayDiv = document.getElementById("bookInfo");
+        displayDiv.innerHTML = `
+            <ul>
+                <li><b>Title:</b> ${bookObj.title}</li>
+                <li><b>Author:</b> ${bookObj.author}</li>
+                <li><b>Year Published:</b> ${bookObj.year}</li>
+                <li><b>Genre:</b> ${bookObj.genre}</li>
+            </ul>
+        `;
+    </script>
+</body>
+</html>

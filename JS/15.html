@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error { color: red; font-size: 14px; display: none; }
+        .success { color: green; font-size: 14px; display: none; }
+        .input-error { border: 2px solid red; }
+        .input-success { border: 2px solid green; }
+    </style>
+</head>
+<body>
+    <h2>User Registration</h2>
+    
+    <form id="regForm">
+        <label>Username:</label>
+        <input type="text" id="username">
+        <span class="error" id="errUser">Username is required (min 3 chars).</span>
+        <span class="success" id="succUser">Correct!</span>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="text" id="email">
+        <span class="error" id="errEmail">Email is required.</span>
+        <span class="success" id="succEmail">correct!</span>
+        <br><br>
+
+        <button type="button" id="submitBtn">Register</button>
+    </form>
+
+    <script>
+
+        
+        $(document).ready(function() {
+            $("#submitBtn").click(function() {
+                let userVal = $("#username").val().trim();
+                let emailVal = $("#email").val().trim();
+                let isValid = true;
+
+                // Validate Username
+                if (userVal.length < 3) {
+                    $("#username").addClass("input-error").removeClass("input-success");
+                    $("#errUser").show();
+                    $("#succUser").hide();
+                    isValid = false;
+                } else {
+                    $("#username").removeClass("input-error").addClass("input-success");
+                    $("#errUser").hide();
+                    $("#succUser").show();
+                }
+
+                // Validate Email 
+                if (emailVal === "") {
+                    $("#email").addClass("input-error").removeClass("input-success");
+                    $("#errEmail").show();
+                    $("#succEmail").hide();
+                    isValid = false;
+                } else {
+                    $("#email").removeClass("input-error").addClass("input-success");
+                    $("#errEmail").hide();
+                    $("#succEmail").show();
+                }
+
+                if (isValid) {
+                    alert("Form submitted successfully!");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

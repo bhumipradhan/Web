@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 10px;
+
+            /* Animation Properties */
+            animation-name: myComplexAnimation;
+            animation-duration: 4s;
+            animation-delay: 1s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-fill-mode: both;
+            animation-play-state: running;
+        }
+
+        /* Hover to pause animation */
+        .box:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes myComplexAnimation {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                background-color: red;
+                opacity: 1;
+            }
+            25% {
+                transform: translate(100px, -50px) scale(1.2) rotate(45deg);
+                background-color: blue;
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(200px, 0) scale(1.5) rotate(90deg);
+                background-color: green;
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(100px, 50px) scale(1.2) rotate(135deg);
+                background-color: purple;
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(0, 0) scale(1) rotate(180deg);
+                background-color: orange;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 style="text-align:center; top: 10px; width: 100%;">Hover over the box to pause</h2>
+        <div class="box">CSS Animation</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Date and Math Objects</h2>
+    <p id="dateDisplay"></p>
+    <p id="mathDisplay"></p>
+
+    <script>
+        // Date Object
+        let currentDate = new Date();
+        document.getElementById("dateDisplay").innerHTML = "<b>Current Date & Time:</b> " + currentDate;
+
+        // Math Object (Random number between 1 and 100)
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        document.getElementById("mathDisplay").innerHTML = "<b>Random Number (1-100):</b> " + randomNumber;
+    </script>
+</body>
+</html>

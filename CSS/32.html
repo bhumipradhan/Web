@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .main {
+            flex: 70%;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-right: 20px solid white;
+        }
+        .sidebar {
+            flex: 30%;
+            background-color: #e2e2e2;
+            padding: 20px;
+        }
+        @media screen and (max-width: 600px) {
+            .main, .sidebar {
+                flex: 100%;
+                border-right: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Responsive Layout</h1>
+    </div>
+    <div class="container">
+        <div class="main">
+            <h2>Main Content</h2>
+            <p>This is the main content area. It takes up 70% of the width on larger screens, but 100% on small screens.</p>
+        </div>
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <p>This is the sidebar area. It takes up 30% of the width on larger screens, but stacks below the main content on small screens.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h2>Car Properties Updates</h2>
+    <p id="carInfo"></p>
+    <button id="updateBtn">Update Car Color</button>
+
+    <script>
+        let car = {
+            make: "Toyota",
+            model: "Corolla",
+            year: 2022,
+            color: "White"
+        };
+
+        let infoDisplay = document.getElementById("carInfo");
+        let btn = document.getElementById("updateBtn");
+
+        function displayCar() {
+            infoDisplay.innerHTML = `${car.year} ${car.make} ${car.model} (${car.color})`;
+        }
+
+        // Initial display
+        displayCar();
+
+        // Event Handler
+        btn.addEventListener("click", function() {
+            car.color = "Red"; 
+            car.year = 2024;  
+            displayCar();  
+        });
+    </script>
+</body>
+</html>

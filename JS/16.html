@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .error { color: red; font-size: 12px; display: none; }
+        .input-error { border: 1px solid red; }
+    </style>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    
+    <form id="advForm">
+        <p>
+            Email:<br>
+            <input type="text" id="email">
+            <span class="error" id="errEmail">Invalid email format.</span>
+        </p>
+        <p>
+            Password:<br>
+            <input type="password" id="pass">
+        </p>
+        <p>
+            Confirm Password:<br>
+            <input type="password" id="cpass">
+            <span class="error" id="errPass">Passwords do not match.</span>
+        </p>
+        <p>
+            Phone (Format: XX-XXXXXXXX):<br>
+            <input type="text" id="phone">
+            <span class="error" id="errPhone">Invalid phone number. Must be XX-XXXXXXXX.</span>
+        </p>
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <script>
+        
+        $(document).ready(function() {
+            $("#advForm").submit(function(e) {
+                e.preventDefault(); // Prevent actual submission
+                let isValid = true;
+                
+                let email = $("#email").val();
+                let pass = $("#pass").val();
+                let cpass = $("#cpass").val();
+                let phone = $("#phone").val();
+
+                // Regex patterns
+                let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                let phonePattern = /^\d{2}-\d{8}$/; 
+
+                // Email Validation
+                if (!emailPattern.test(email)) {
+                    $("#errEmail").show(); $("#email").addClass("input-error"); isValid = false;
+                } else {
+                    $("#errEmail").hide(); $("#email").removeClass("input-error");
+                }
+
+                // Password Match Verification
+                if (pass === "" || pass !== cpass) {
+                    $("#errPass").show(); $("#cpass").addClass("input-error"); isValid = false;
+                } else {
+                    $("#errPass").hide(); $("#cpass").removeClass("input-error");
+                }
+
+                // Phone Validation
+                if (!phonePattern.test(phone)) {
+                    $("#errPhone").show(); $("#phone").addClass("input-error"); isValid = false;
+                } else {
+                    $("#errPhone").hide(); $("#phone").removeClass("input-error");
+                }
+
+                if (isValid) alert("Form Submitted Succesfully!!.");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button onclick="handleInteraction()">Click me!</button>
+
+    <script>
+
+        function handleInteraction() {
+            let name = prompt("Please enter your name:", "Mandip");
+            
+            // Display input using alert
+            if (name != null) {
+                alert("Hello " + name + "! Welcome.");
+            }
+
+            // Confirm box for yes/no response
+            let response = confirm("Do you like JavaScript?");
+            
+            // Display confirm result
+            if (response) {
+                alert("Awesome! You pressed Yes.");
+            } else {
+                alert("That's okay! You pressed No.");
+            }
+        }
+    </script>
+</body>
+</html>
